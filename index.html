@@ -1,0 +1,281 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Igreja Avivamento Divino | Site em construção</title>
+  <meta name="description" content="Igreja Avivamento Divino São Bernardo do Campo. Nosso site está em construção. Cultos: Domingo 19h, Segunda (Oração) 20h/21h e Quarta 19h30.">
+  <meta name="theme-color" content="#0b0b0c">
+  <meta property="og:title" content="Igreja Avivamento Divino">
+  <meta property="og:description" content="Nosso novo site está chegando. Enquanto isso, venha nos visitar!">
+  <meta property="og:type" content="website">
+  <meta property="og:url" content="https://avivamentodivino.com.br/">
+  <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'%3E%3Ccircle cx='50' cy='50' r='48' fill='%230b0b0c' stroke='%23d4af37' stroke-width='4'/%3E%3Cg fill='none' stroke='%23d4af37' stroke-width='6' stroke-linejoin='round'%3E%3Cpath d='M50 18 L78 66 L22 66 Z'/%3E%3Cpath d='M50 82 L22 34 L78 34 Z'/%3E%3C/g%3E%3C/svg%3E">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@500;700;900&family=Montserrat:wght@300;400;600&display=swap" rel="stylesheet">
+  <style>
+    :root {
+      --black: #0b0b0c;
+      --black-2: #151517;
+      --gold: #d4af37;
+      --gold-light: #f3d98b;
+      --gold-dark: #9c7a1f;
+      --cream: #f7f1e3;
+      --muted: #b9b2a2;
+      --gold-gradient: linear-gradient(135deg, #9c7a1f 0%, #f3d98b 45%, #d4af37 60%, #9c7a1f 100%);
+    }
+    * { box-sizing: border-box; margin: 0; padding: 0; }
+    html, body { min-height: 100%; }
+    body {
+      font-family: 'Montserrat', system-ui, sans-serif;
+      background: var(--black);
+      color: var(--cream);
+      line-height: 1.6;
+      overflow-x: hidden;
+      background-image:
+        radial-gradient(ellipse at 50% -10%, rgba(212,175,55,.22), transparent 60%),
+        radial-gradient(ellipse at 50% 110%, rgba(212,175,55,.10), transparent 55%);
+      background-attachment: fixed;
+    }
+    /* Partículas de luz */
+    .glow { position: fixed; inset: 0; pointer-events: none; z-index: 0; overflow: hidden; }
+    .glow span {
+      position: absolute; bottom: -10px; width: 4px; height: 4px; border-radius: 50%;
+      background: var(--gold-light); box-shadow: 0 0 10px var(--gold);
+      opacity: 0; animation: rise linear infinite;
+    }
+    @keyframes rise {
+      0% { transform: translateY(0); opacity: 0; }
+      10% { opacity: .8; }
+      100% { transform: translateY(-110vh); opacity: 0; }
+    }
+
+    main {
+      position: relative; z-index: 1;
+      max-width: 960px; margin: 0 auto;
+      padding: 56px 16px 32px;
+      display: flex; flex-direction: column; align-items: center; text-align: center;
+    }
+
+    .emblem {
+      width: 170px; height: 170px; border-radius: 50%;
+      display: grid; place-items: center;
+      background: radial-gradient(circle at 50% 40%, #1d1d20, var(--black) 70%);
+      border: 3px solid var(--gold);
+      box-shadow: 0 0 0 6px rgba(212,175,55,.12), 0 0 60px rgba(212,175,55,.35);
+      animation: pulse 4s ease-in-out infinite;
+    }
+    @keyframes pulse {
+      0%, 100% { box-shadow: 0 0 0 6px rgba(212,175,55,.12), 0 0 40px rgba(212,175,55,.25); }
+      50% { box-shadow: 0 0 0 10px rgba(212,175,55,.08), 0 0 80px rgba(212,175,55,.45); }
+    }
+    .emblem svg { width: 96px; height: 96px; }
+
+    .eyebrow {
+      margin-top: 28px;
+      font-family: 'Cinzel', serif; font-weight: 500;
+      letter-spacing: .5em; font-size: .8rem; color: var(--gold-light);
+      text-transform: uppercase; padding-left: .5em;
+    }
+    h1 {
+      font-family: 'Cinzel', serif; font-weight: 900;
+      font-size: clamp(2.2rem, 7vw, 4.4rem); line-height: 1.05;
+      margin-top: 6px;
+      background: var(--gold-gradient); -webkit-background-clip: text; background-clip: text;
+      color: transparent;
+      text-shadow: 0 2px 30px rgba(212,175,55,.15);
+    }
+    .city {
+      margin-top: 8px; font-size: .78rem; letter-spacing: .35em; text-transform: uppercase; color: var(--muted);
+    }
+
+    .divider {
+      display: flex; align-items: center; gap: 14px; width: min(360px, 80%); margin: 32px auto;
+      color: var(--gold);
+    }
+    .divider::before, .divider::after {
+      content: ""; flex: 1; height: 1px; background: linear-gradient(90deg, transparent, var(--gold), transparent);
+    }
+
+    .status {
+      display: inline-flex; align-items: center; gap: 10px;
+      border: 1px solid rgba(212,175,55,.45); border-radius: 999px;
+      padding: 8px 18px; font-size: .85rem; letter-spacing: .08em; color: var(--gold-light);
+      background: rgba(212,175,55,.06);
+    }
+    .status .dot { width: 8px; height: 8px; border-radius: 50%; background: var(--gold); animation: blink 1.6s infinite; }
+    @keyframes blink { 50% { opacity: .2; } }
+
+    h2.lead {
+      font-family: 'Cinzel', serif; font-weight: 700;
+      font-size: clamp(1.3rem, 3.6vw, 2rem); margin-top: 22px; color: var(--cream);
+    }
+    p.sub { max-width: 560px; margin: 12px auto 0; color: var(--muted); font-weight: 300; }
+
+    .verse {
+      margin-top: 28px; max-width: 600px;
+      font-family: 'Cinzel', serif; font-style: normal; font-size: 1.05rem; color: var(--gold-light);
+    }
+    .verse small { display: block; margin-top: 6px; font-family: 'Montserrat', sans-serif; font-size: .75rem; letter-spacing: .2em; color: var(--muted); }
+
+    .progress { width: min(420px, 100%); margin-top: 32px; }
+    .bar { height: 6px; border-radius: 999px; background: #222; overflow: hidden; }
+    .bar i {
+      display: block; height: 100%; width: 72%;
+      background: var(--gold-gradient); background-size: 200% 100%;
+      animation: shine 3s linear infinite;
+    }
+    @keyframes shine { to { background-position: -200% 0; } }
+    .progress span { display: block; margin-top: 8px; font-size: .75rem; letter-spacing: .15em; color: var(--muted); text-transform: uppercase; }
+
+    .cards {
+      display: grid; grid-template-columns: repeat(3, 1fr); gap: 16px;
+      width: 100%; margin-top: 48px;
+    }
+    .card {
+      background: linear-gradient(180deg, var(--black-2), #0f0f11);
+      border: 1px solid rgba(212,175,55,.25); border-radius: 16px;
+      padding: 24px 18px; transition: transform .25s, border-color .25s;
+    }
+    .card:hover { transform: translateY(-4px); border-color: var(--gold); }
+    .card .day { font-family: 'Cinzel', serif; font-weight: 700; color: var(--gold); font-size: 1.15rem; }
+    .card .time { font-size: 1.8rem; font-weight: 600; color: var(--cream); margin: 4px 0; }
+    .card .what { font-size: .8rem; letter-spacing: .12em; text-transform: uppercase; color: var(--muted); }
+
+    .address {
+      margin-top: 32px; display: flex; flex-direction: column; align-items: center; gap: 6px;
+    }
+    .address strong { font-family: 'Cinzel', serif; color: var(--gold-light); letter-spacing: .1em; }
+    .address p { color: var(--cream); }
+
+    .actions { display: flex; flex-wrap: wrap; gap: 12px; justify-content: center; margin-top: 28px; }
+    .btn {
+      display: inline-flex; align-items: center; gap: 10px;
+      padding: 14px 24px; border-radius: 999px; text-decoration: none; font-weight: 600; font-size: .9rem;
+      letter-spacing: .05em; transition: transform .2s, box-shadow .2s, background .2s;
+    }
+    .btn svg { width: 20px; height: 20px; }
+    .btn-gold { background: var(--gold-gradient); color: var(--black); box-shadow: 0 6px 24px rgba(212,175,55,.3); }
+    .btn-gold:hover { transform: translateY(-2px); box-shadow: 0 10px 30px rgba(212,175,55,.45); }
+    .btn-outline { border: 1px solid var(--gold); color: var(--gold-light); }
+    .btn-outline:hover { background: rgba(212,175,55,.1); transform: translateY(-2px); }
+
+    footer {
+      position: relative; z-index: 1; text-align: center; padding: 32px 16px 40px;
+      font-size: .75rem; color: #7d776a; letter-spacing: .05em;
+      border-top: 1px solid rgba(212,175,55,.12); margin-top: 40px;
+    }
+
+    @media (max-width: 680px) {
+      main { padding-top: 40px; }
+      .emblem { width: 140px; height: 140px; }
+      .emblem svg { width: 78px; height: 78px; }
+      .cards { grid-template-columns: 1fr; }
+      .eyebrow { letter-spacing: .35em; }
+      .btn { width: 100%; justify-content: center; }
+    }
+    @media (prefers-reduced-motion: reduce) {
+      *, *::before, *::after { animation: none !important; transition: none !important; }
+    }
+  </style>
+</head>
+<body>
+  <div class="glow" aria-hidden="true" id="glow"></div>
+
+  <main>
+    <div class="emblem" aria-hidden="true">
+      <svg viewBox="0 0 100 100">
+        <defs>
+          <linearGradient id="g" x1="0" y1="0" x2="1" y2="1">
+            <stop offset="0" stop-color="#9c7a1f"/>
+            <stop offset=".45" stop-color="#f3d98b"/>
+            <stop offset=".6" stop-color="#d4af37"/>
+            <stop offset="1" stop-color="#9c7a1f"/>
+          </linearGradient>
+        </defs>
+        <g fill="none" stroke="url(#g)" stroke-width="5" stroke-linejoin="round">
+          <path d="M50 8 L88 74 L12 74 Z"/>
+          <path d="M50 92 L12 26 L88 26 Z"/>
+        </g>
+      </svg>
+    </div>
+
+    <p class="eyebrow">Igreja</p>
+    <h1>Avivamento Divino</h1>
+    <p class="city">São Bernardo do Campo</p>
+
+    <div class="divider" aria-hidden="true">✦</div>
+
+    <div class="status"><span class="dot"></span> Site em construção</div>
+    <h2 class="lead">Algo novo está sendo edificado</h2>
+    <p class="sub">Estamos preparando um novo espaço online com tudo sobre nossos cultos, ministérios, eventos e a Palavra. Enquanto isso, você é muito bem-vindo para estar conosco presencialmente!</p>
+
+    <p class="verse">“Eis que faço uma coisa nova; agora sairá à luz.”<small>ISAÍAS 43:19</small></p>
+
+    <div class="progress" role="progressbar" aria-valuenow="72" aria-valuemin="0" aria-valuemax="100" aria-label="Progresso do site">
+      <div class="bar"><i></i></div>
+      <span>Em breve no ar</span>
+    </div>
+
+    <section class="cards" aria-label="Horários dos cultos">
+      <div class="card">
+        <div class="day">Domingo</div>
+        <div class="time">19h</div>
+        <div class="what">Culto da Família</div>
+      </div>
+      <div class="card">
+        <div class="day">Segunda</div>
+        <div class="time">20h – 21h</div>
+        <div class="what">Culto de Oração</div>
+      </div>
+      <div class="card">
+        <div class="day">Quarta</div>
+        <div class="time">19h30</div>
+        <div class="what">Culto de Ensino</div>
+      </div>
+    </section>
+
+    <div class="address">
+      <strong>NOSSO ENDEREÇO</strong>
+      <p>Rua Max Mangels Sênior, 454 — Planalto<br>São Bernardo do Campo / SP</p>
+    </div>
+
+    <div class="actions">
+      <a class="btn btn-gold" href="https://www.instagram.com/igreja.avivamentodivino/" target="_blank" rel="noopener">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="2" width="20" height="20" rx="5"/><circle cx="12" cy="12" r="4"/><circle cx="17.5" cy="6.5" r="1" fill="currentColor"/></svg>
+        @igreja.avivamentodivino
+      </a>
+      <a class="btn btn-outline" href="https://www.google.com/maps/search/?api=1&query=Rua+Max+Mangels+S%C3%AAnior%2C+454+-+Planalto%2C+S%C3%A3o+Bernardo+do+Campo+-+SP" target="_blank" rel="noopener">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 10c0 7-9 13-9 13S3 17 3 10a9 9 0 0 1 18 0z"/><circle cx="12" cy="10" r="3"/></svg>
+        Como chegar
+      </a>
+      <a class="btn btn-outline" href="https://canva.link/igrejaavivamentodivino" target="_blank" rel="noopener">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M20.8 4.6a5.5 5.5 0 0 0-7.8 0L12 5.7l-1-1.1a5.5 5.5 0 0 0-7.8 7.8l1 1.1L12 21l7.8-7.5 1-1.1a5.5 5.5 0 0 0 0-7.8z"/></svg>
+        Boas-vindas
+      </a>
+    </div>
+  </main>
+
+  <footer>
+    © <span id="y">2026</span> Igreja Avivamento Divino · São Bernardo do Campo/SP · Todos os direitos reservados
+  </footer>
+
+  <script>
+    document.getElementById('y').textContent = new Date().getFullYear();
+    // partículas douradas subindo
+    (function () {
+      var c = document.getElementById('glow');
+      for (var i = 0; i < 28; i++) {
+        var s = document.createElement('span');
+        s.style.left = Math.random() * 100 + '%';
+        s.style.animationDuration = 8 + Math.random() * 12 + 's';
+        s.style.animationDelay = Math.random() * 12 + 's';
+        var size = 2 + Math.random() * 3;
+        s.style.width = s.style.height = size + 'px';
+        c.appendChild(s);
+      }
+    })();
+  </script>
+</body>
+</html>
